@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: ${SPRING_ACTIVE_PROFILE:dev}
+  devtools:
+    add-properties: false
+
+#logging:
+#  level:
+#    web: debug
+
+#file:
+#  upload-dir: uploads
+#  upload-dir-tmp: uploads/tmp
+#  working-dir: uploads
+
+server:
+  port: ${PORT:5000}
+  servlet:
+    context-path: /${CONTEXT_PATH:indulge}
+
+api:
+  url-domain: ${APP_URL_DOMAIN:http://localhost:${server.port}${server.servlet.context-path}}
+  basepath-api: /api/v1
+  basepath-admin: ${api.basepath-api}/admin
+  basepath-client: ${api.basepath-api}/client
+
+---
+#actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
