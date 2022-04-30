@@ -8,7 +8,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:17.0.3 # ...with this image as the primary container; this is where all `steps` will run
+      - image: cimg/openjdk:17.0.3 # ...with this image as the primary container; this is where all `steps` will run
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
