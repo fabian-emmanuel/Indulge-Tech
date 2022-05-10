@@ -4,14 +4,43 @@ spring:
     init:
       mode: always
   datasource:
-    url: jdbc:tc:mysql:latest:///indulge
+    url: jdbc:mysql://localhost:3306/indulge_test
     username: root
-    password: Shelah2020
+    password: s3cret
 
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
     open-in-view: false
+
+
+
+
+#spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;MODE=MYSQL
+#    username: sa
+#    password: sa
+#
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    open-in-view: false
+#      #properties:
+#    #hibernate:
+#    #enable_lazy_load_no_trans: true
+
+
+server:
+  port: ${PORT:5001}
+  servlet:
+    context-path: /fellowship
+api:
+  url-domain: http://localhost:5001${server.servlet.context-path}
+
+
 
 

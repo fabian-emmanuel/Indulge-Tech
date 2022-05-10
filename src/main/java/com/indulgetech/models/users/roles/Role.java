@@ -7,10 +7,7 @@ import com.indulgetech.models.common.generics.BaseEntity;
 import com.indulgetech.models.users.admin.AdminUser;
 import com.indulgetech.models.users.client.ClientUser;
 import com.indulgetech.models.users.permissions.Permission;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.UniqueElements;
@@ -26,6 +23,7 @@ import static constants.SchemaConstant.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//@Builder
 @Entity
 @EntityListeners(AuditListener.class)
 @SQLDelete(sql =
@@ -44,7 +42,6 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
     private String description;
 
     @Column(length = 30)//TODO: should be unique, but setting it here makes tests fail for now when calling AdminUserDetail.getLoggedinToken()
-    @UniqueElements
     private String roleKey;
 
     @Enumerated(EnumType.STRING)
@@ -52,9 +49,9 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<AdminUser> adminUsers = new HashSet<>();
-
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-    private Set<ClientUser> clientUsers = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+//    private Set<ClientUser> clientUsers = new HashSet<>();
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     /*@JoinTable(name = "role_permission",
@@ -78,13 +75,13 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
         permissions.remove(permission);
     }
 
-    public void addClientUser(ClientUser clientUser){
-        this.clientUsers.add(clientUser);
-    }
-
-    public void removeClientUser(ClientUser clientUser){
-        this.clientUsers.remove(clientUser);
-    }
+//    public void addClientUser(ClientUser clientUser){
+//        this.clientUsers.add(clientUser);
+//    }
+//
+//    public void removeClientUser(ClientUser clientUser){
+//        this.clientUsers.remove(clientUser);
+//    }
 
    
     public void addAdminUser(AdminUser adminUser){

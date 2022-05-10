@@ -6,12 +6,12 @@ import java.util.Locale;
 
 public class SchemaConstant {
 
-    public static final String FELLOWSHIP_SCHEMA = "FELLOWSHIP";
+    public static final String INDULGE_TECH_SCHEMA = "INDULGE";
 
-    public static final String DEFAULT_SUPER_ADMINISTRATOR_EMAIL = "admin@indulgetech.com";
-    public static final String DEFAULT_SUPER_ADMINISTRATOR_DEFAULT_PASS = "superadmin";
-    public static final String DEFAULT_APP_NAME = "Indulge Enterprise Application";
-    public static final String DEFAULT_COMPANY_EMAIL = "indulge@tech.com";//todo change later
+    public static final String DEFAULT_SUPER_ADMINISTRATOR_EMAIL = "emmanuel.fabian.dev@gmail.com";
+    public static final String DEFAULT_SUPER_ADMINISTRATOR_DEFAULT_PASS = "superadmin123";
+    public static final String DEFAULT_APP_NAME = "Indulge Tech Application";
+    public static final String DEFAULT_COMPANY_EMAIL = "emmanuel.fabian.dev@gmail.com";
     public static final String DEFAULT_COMPANY_NAME = "Indulge Tech";
     public static final String DEFAULT_CREATE_PASSWORD_EMAIL_SUBJ = "Create Password Email";
     public static final String DEFAULT_PASSWORD_CREATED_MAIL_SUBJ = "Password Created";
@@ -22,11 +22,7 @@ public class SchemaConstant {
     public static final Currency DEFAULT_CURRENCY = Currency.getInstance("NGN");
     public static final String DEFAULT_COUNTRY = "NG";
     public static final String DEFAULT_LANGUAGE = "en";
-    public static final String DEFAULT_ENGINEER_ASSIGNMENT_REQUEST_TO_EMAIL =  DEFAULT_COMPANY_EMAIL;
-    public static final String DEFAULT_SUBSCRIPTION_REQUEST_TO_EMAIL =DEFAULT_COMPANY_EMAIL;
     public static final String DEFAULT_SUPPORT_EMAIL = DEFAULT_COMPANY_EMAIL;
-    public static final String DEFAULT_SUBSCRIPTION_EXPIRATION_REMINDER_EMAIL_SUBJ = "Subscription Expiration Reminder";
-    public static final String DEFAULT_INVOICE_EXPIRATION_REMINDER_EMAIL_SUBJ = "Invoice Expiration Reminder";
 
     //db configuration constant up to 30 characters in length
     public static final String SUPER_ADMINISTRATOR_EMAIL = "SUPER_ADMIN_EMAIL";
@@ -38,17 +34,10 @@ public class SchemaConstant {
     public static final String COMPANY_NAME = "COMPANY_NAME";
     public static final String COMPANY_EMAIL = "COMPANY_EMAIL";
     public static final String EMAILS = "EMAILS";
-    public static final String SUBSCRIPTION_REQUEST_TO_EMAIL = "SUBSRPTN_REQ_EMAIL";
-    public static final String ENGINEER_ASSIGNMENT_REQUEST_TO_EMAIL = "ENGR_ASSIGNMNT_REQ_EMAIL";
     public static final String EMAIL_SUBJ_CREATE_PSSWORD_EMAIL = "CREATE_PSSWORD_MAIL_SUBJ";
     public static final String EMAIL_SUBJ_PASSWORD_CREATED_MAIL = "PASSWORD_CREATED_MAIL_SUBJ";
     public static final String EMAIL_SUBJ_CREATE_ADMIN_USER_EMAIL = "CREATE_ADMIN_USER_EMAIL_SUBJ";
-    public static final String EMAIL_SUBJ_SUBSCRIPTION_REQUEST_EMAIL = "SUBSCRIPTION_EMAIL_SUBJ";
-    public static final String EMAIL_SUBJ_ENGINEER_ASSIGNMENT_REQUEST_EMAIL = "ENGR_ASSIGNMENT_REQ_EMAIL_SUBJ";
     public static final String SUPPORT_EMAIL = "ADMIN_EMAIL";
-    public static final String CHECK_SUBSRIPTION_ON_ASSIGN_ENGINEER = "CHECK_SUBSR_ON_PLACEMENT";
-    public static final String EMAIL_SUBJ_SUBSCRIPTION_EXPIRATION_REMINDER_EMAIL = "SUBSCRIPTION_EXPIRATION_REMINDER_EMAIL_SUBJ";
-    public static final String EMAIL_SUBJ_INVOICE_EXPIRATION_REMINDER_EMAIL = "INVOICE_EXPIRATION_REMINDER_EMAIL";
 
     /**
      * Country iso codes
@@ -81,7 +70,7 @@ public class SchemaConstant {
      */
     public static HashMap<String, Locale> getLocales(){
 
-       HashMap<String, Locale> LOCALES = new HashMap<String, Locale>();
+       HashMap<String, Locale> LOCALES = new HashMap<>();
         //static {
             for (Locale locale : Locale.getAvailableLocales()) {
                 LOCALES.put(locale.getCountry(), locale);
@@ -97,7 +86,7 @@ public class SchemaConstant {
      */
     public static HashMap<String, String> getCurrenciesMap() {
 
-        HashMap<String, String> CURRENCY_MAP = new HashMap<String, String>();
+        HashMap<String, String> CURRENCY_MAP = new HashMap<>();
 
             CURRENCY_MAP.put("AFN", "Afghani");
             CURRENCY_MAP.put("EUR", "Euro");
@@ -323,7 +312,6 @@ public class SchemaConstant {
     public static final String TABLE_CLIENT_USERS="CLIENT_USERS";
 //    public static final String TABLE_ORGANIZATION="ORGANIZATION";
     public static final String TABLE_CLIENT_USER_ROLE="CLIENT_USER_ROLE";
-    public static final String TABLE_PACKAGES="PACKAGES";
     public static final String TABLE_PERMISSIONS="PERMISSIONS";
     public static final String TABLE_ROLES="ROLES";
     public static final String TABLE_ROLE_PERMISSIONS="ROLES_PERMISSIONS";

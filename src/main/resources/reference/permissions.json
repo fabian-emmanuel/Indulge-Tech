@@ -1,0 +1,40 @@
+[
+  {
+    "permission": "manageAdminUser",
+    "name": "Manage Admin User",
+    "description": "can create user,can view user,can update user,can activate/deactivate user",
+    "permissionType": "ADMIN"
+  },
+  {
+    "permission": "manageRole",
+    "name": "Manage Role",
+    "description": "can create role,can view role,can update role,can delete role",
+    "permissionType": "ADMIN"
+  },
+  {
+    "permission": "manageCoreConfiguration",
+    "name": "Manage Core Configurations",
+    "description": "manage configuration",
+    "permissionType": "ADMIN"
+  },
+  {
+    "permission": "manageClientUser",
+    "name": "Manage Client User",
+    "description": "can create user,can view user,can update user,can activate and deactivate user",
+    "permissionType": "ADMIN"
+  },
+  {
+    "permission": "viewAccessOnly",
+    "name": "View Access Only",
+    "description": "Has all view access",
+    "permissionType": "ADMIN"
+  },
+  {
+    "permission": "adminMemberAccess",
+    "name": "All Admin Members Default Access",
+    "description": "Has all view access",
+    "permissionType": "ADMIN"
+  }
+]
+
+

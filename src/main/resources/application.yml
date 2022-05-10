@@ -3,15 +3,19 @@ spring:
     active: ${SPRING_ACTIVE_PROFILE:dev}
   devtools:
     add-properties: false
+  jackson:
+    default-property-inclusion: NON_NULL
 
-#logging:
-#  level:
-#    web: debug
 
-#file:
-#  upload-dir: uploads
-#  upload-dir-tmp: uploads/tmp
-#  working-dir: uploads
+file:
+  upload-dir: uploads
+  upload-dir-tmp: uploads/tmp
+  working-dir: uploads
+
+db:
+  init:
+    data: true
+
 
 server:
   port: ${PORT:5000}
@@ -20,9 +24,48 @@ server:
 
 api:
   url-domain: ${APP_URL_DOMAIN:http://localhost:${server.port}${server.servlet.context-path}}
-  basepath-api: /api/v1
-  basepath-admin: ${api.basepath-api}/admin
-  basepath-client: ${api.basepath-api}/client
+  basepath: /api/v1
+  basepath-admin: ${api.basepath}/admin-users
+  basepath-client: ${api.basepath}/client-users
+  version: 1.0
+  module-name: indulgeTech
+
+jwt:
+  authorities:
+    key: roles
+  token:
+    secret-key: ${JWT_SECRET:1xvrtrt56}
+    expire-length: ${JWT_EXPIRE_LENGTH:86400000}
+---
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  web:
+    resources:
+      add-mappings: true
+
+  # ===============================
+  # = MAIL
+  # ===============================
+  mail:
+    host: smtp.gmail.com
+    password: mydevemail20201#
+    username: mydevemail2020@gmail.com
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          port: 587
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+---
+config:
+  emailSender: default
 
 ---
 #actuator
