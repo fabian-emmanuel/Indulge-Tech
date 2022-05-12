@@ -15,7 +15,6 @@
     <description>Indulge Tech</description>
     <properties>
         <java.version>17</java.version>
-        <springdoc.version>1.6.8</springdoc.version>
         <jjwt.version>0.9.1</jjwt.version>
     </properties>
     <dependencies>
@@ -79,13 +78,19 @@
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
-                <version>${springdoc.version}</version>
+                <version>1.6.8</version>
             </dependency>
 
         <dependency>
             <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webflux-ui</artifactId>
+            <version>1.6.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-webmvc-core</artifactId>
-            <version>1.6.7</version>
+            <version>1.6.8</version>
         </dependency>
 
         <dependency>
