@@ -9,8 +9,6 @@ import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,7 +30,6 @@ import java.util.Map;
 @Service
 @Slf4j
 public class JwtFilter extends OncePerRequestFilter {
-//    private static final Logger log = LoggerFactory.getLogger(JwtFilter.class);
     private final JwtUtil jwtUtil;
     private final Map<String, UserDetailsService> userDetailsServiceStrategies;
     private final TokenBlacklistService tokenBlacklistService;
@@ -73,7 +70,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
     private void writeErrorResponse(String errMsg, HttpServletResponse response,HttpStatus httpStatus) {
         try {
-            ApiDataResponse ar = new ApiDataResponse<>(httpStatus);
+            ApiDataResponse<Object> ar = new ApiDataResponse<>(httpStatus);
             ar.setMessage(errMsg);
             response.setStatus(httpStatus.value());
             response.setContentType("application/json");

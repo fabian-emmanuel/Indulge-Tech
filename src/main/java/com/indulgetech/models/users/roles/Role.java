@@ -1,7 +1,7 @@
 package com.indulgetech.models.users.roles;
 
 import com.indulgetech.models.common.audit.AuditListener;
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import com.indulgetech.models.users.admin.AdminUser;
@@ -10,7 +10,6 @@ import com.indulgetech.models.users.permissions.Permission;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -23,11 +22,10 @@ import static constants.SchemaConstant.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//@Builder
 @Entity
 @EntityListeners(AuditListener.class)
 @SQLDelete(sql =
-        "UPDATE roles " +
+        "UPDATE role " +
                 "SET deleted = '1' " +
                 "WHERE id = ?")
 @Where(clause = "deleted='0'")
@@ -49,19 +47,16 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<AdminUser> adminUsers = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-//    private Set<ClientUser> clientUsers = new HashSet<>();
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    /*@JoinTable(name = "role_permission",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "permission_id"))*/
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    private Set<ClientUser> clientUsers = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
     private Set<Permission> permissions = new HashSet<>();
 
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 
     private boolean systemCreated;
 
@@ -75,13 +70,13 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
         permissions.remove(permission);
     }
 
-//    public void addClientUser(ClientUser clientUser){
-//        this.clientUsers.add(clientUser);
-//    }
-//
-//    public void removeClientUser(ClientUser clientUser){
-//        this.clientUsers.remove(clientUser);
-//    }
+    public void addClientUser(ClientUser clientUser){
+        this.clientUsers.add(clientUser);
+    }
+
+    public void removeClientUser(ClientUser clientUser){
+        this.clientUsers.remove(clientUser);
+    }
 
    
     public void addAdminUser(AdminUser adminUser){
@@ -101,7 +96,7 @@ public class Role extends BaseEntity<Integer, Role> implements Auditable {
                 ", description='" + description + '\'' +
                 ", roleKey='" + roleKey + '\'' +
                 ", roleType=" + roleType +
-                ", auditSection=" + auditSession +
+                ", auditSection=" + auditSection +
                 '}';
     }
 }

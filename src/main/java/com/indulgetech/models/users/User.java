@@ -1,12 +1,10 @@
 package com.indulgetech.models.users;
 
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import com.indulgetech.utils.CommonUtils;
 import com.indulgetech.utils.CustomDateUtils;
-import constants.SchemaConstant;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.time.DateUtils;
@@ -69,7 +67,7 @@ public abstract class User extends BaseEntity<Long, User> implements Auditable {
     private String profilePic;
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 
     public boolean tokenExpired() {
         return this.passwordResetValidityTerm != null && this.passwordResetValidityTerm.before(CustomDateUtils.now());

@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <style type="text/css">
+    <style rel="stylesheet">
         p {
         }
 
@@ -50,26 +50,26 @@
             <!-- content -->
             <div class="content">
                 <p>
-                    <table>
-                        <tr>
-                            <td align="center">
-                <p>
-                    ${EMAIL_DISCLAIMER}
-                </p>
-                <p>
-                    ${EMAIL_SPAM_DISCLAIMER}
-                </p>
-                <p>
-                    ${EMAIL_FOOTER_COPYRIGHT}
-                </p>
-        </td>
-    </tr>
-</table>
+                <table>
+                    <tr>
+                        <td align="center">
+                            <p>
+                                ${EMAIL_DISCLAIMER}
+                            </p>
+                            <p>
+                                ${EMAIL_SPAM_DISCLAIMER}
+                            </p>
+                            <p>
+                                ${EMAIL_FOOTER_COPYRIGHT}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
             </div><!-- /content -->
 
-</td>
-<td></td>
-</tr>
+        </td>
+        <td></td>
+    </tr>
 </table><!-- /FOOTER -->
 
 </body>

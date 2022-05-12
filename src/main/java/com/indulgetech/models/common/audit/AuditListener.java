@@ -10,26 +10,26 @@ public class AuditListener {
   @PrePersist
   public void onSave(Object o) {
     if (o instanceof Auditable audit) {
-      AuditSession auditSection = audit.getAuditSession();
+      AuditSection auditSection = audit.getAuditSection();
 
       auditSection.setDateModified(now());
       if (auditSection.getDateCreated() == null) {
         auditSection.setDateCreated(now());
       }
-      audit.setAuditSession(auditSection);
+      audit.setAuditSection(auditSection);
     }
   }
 
   @PreUpdate
   public void onUpdate(Object o) {
     if (o instanceof Auditable audit) {
-      AuditSession auditSection = audit.getAuditSession();
+      AuditSection auditSection = audit.getAuditSection();
 
       auditSection.setDateModified(now());
       if (auditSection.getDateCreated() == null) {
         auditSection.setDateCreated(now());
       }
-      audit.setAuditSession(auditSection);
+      audit.setAuditSection(auditSection);
     }
   }
 }

@@ -46,4 +46,8 @@ public class CustomDateUtils {
         SimpleDateFormat format = new SimpleDateFormat("yyyy");
         return format.format(new Date(dt.getTime()));
     }
+
+    public static Date getDateFromDateTime(Date date) {
+        return DateUtils.truncate(date,Calendar.DATE);
+    }
 }

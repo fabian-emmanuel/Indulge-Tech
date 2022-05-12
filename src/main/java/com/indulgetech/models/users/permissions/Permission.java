@@ -2,7 +2,7 @@ package com.indulgetech.models.users.permissions;
 
 
 import com.indulgetech.models.common.audit.AuditListener;
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import com.indulgetech.models.users.roles.Role;
@@ -24,7 +24,7 @@ import static constants.SchemaConstant.TABLE_PERMISSIONS;
 @Entity
 @EntityListeners(AuditListener.class)
 @SQLDelete(sql =
-        "UPDATE permissions " +
+        "UPDATE permission " +
                 "SET deleted = '1' " +
                 "WHERE id = ?")
 @Where(clause = "deleted='0'")
@@ -55,7 +55,7 @@ public class Permission extends BaseEntity<Integer, Permission> implements Audit
     }
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 
     public Permission(String permission) {
         this.permission=permission;

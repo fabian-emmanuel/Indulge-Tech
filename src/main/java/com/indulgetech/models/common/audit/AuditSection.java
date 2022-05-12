@@ -14,7 +14,7 @@ import java.util.Date;
 //@Getter
 //@Setter
 //@NoArgsConstructor
-public class AuditSession implements Serializable {
+public class AuditSection implements Serializable {
     @Serial
     private static final long serialVersionUID = -1934446958975060889L;
 
@@ -32,7 +32,7 @@ public class AuditSession implements Serializable {
     @Column(name="deleted", columnDefinition = "varchar(1) default (0)")
     private String delF="0";
 
-//    public AuditSession() {}
+//    public AuditSection() {}
 
     public Date getDateCreated() {
         return CloneUtils.clone(dateCreated);

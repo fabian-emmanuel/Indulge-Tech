@@ -1,6 +1,6 @@
-<html>
+<html lang="en">
 <head>
-    <style type="text/css">
+    <style rel="stylesheet">
         p {
         }
 
@@ -30,6 +30,7 @@
             font-weight: bold;
         }
     </style>
+    <title>Admin User Created</title>
 </head>
 <body>
 
@@ -60,7 +61,7 @@
                 <p>
                 <table>
                     <tr>
-                        <td align="center">
+                        <td>
                             <p>
                                 ${EMAIL_DISCLAIMER}
                             </p>
@@ -76,7 +77,6 @@
             </div><!-- /content -->
 
         </td>
-        <td></td>
     </tr>
 </table><!-- /FOOTER -->
 </body>

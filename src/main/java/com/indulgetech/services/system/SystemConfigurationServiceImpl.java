@@ -7,7 +7,6 @@ import com.indulgetech.models.system.SystemConfiguration;
 import com.indulgetech.repositories.system.SystemConfigurationRepository;
 import com.indulgetech.services.generic.BaseEntityServiceImpl;
 import com.indulgetech.services.system.mail.EmailConfig;
-import constants.SchemaConstant;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,7 @@ public class SystemConfigurationServiceImpl extends BaseEntityServiceImpl<Long, 
         }
         configuration.setConfigurationKey(COMPANY_NAME);
         configuration.setConfigurationName("Company Name");
-        configuration.setValue("Decagon Digital Learning Institute");
+        configuration.setValue("Indulge Tech");
         configuration.setConfigurationGroup(GENERAL);
         configuration.setSortOrder(2);
         this.create(configuration);

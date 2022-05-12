@@ -71,11 +71,9 @@ public class SchemaConstant {
     public static HashMap<String, Locale> getLocales(){
 
        HashMap<String, Locale> LOCALES = new HashMap<>();
-        //static {
             for (Locale locale : Locale.getAvailableLocales()) {
                 LOCALES.put(locale.getCountry(), locale);
             }
-        //}
         return LOCALES;
     }
 
@@ -301,48 +299,19 @@ public class SchemaConstant {
 
     }
 
-    public static final String TABLE_ADMIN_LOGIN_HISTORY="ADMIN_LOGIN_HISTORY";
-    public static final String TABLE_ADMIN_USER="ADMIN_USER";
-    public static final String TABLE_ADMIN_USER_ROLE="ADMIN_USER_ROLE";
-    public static final String TABLE_CLIENT_LOGIN_HISTORY="CLIENT_LOGIN_HISTORY";
-    public static final String TABLE_COUNTRY="COUNTRY";
-    public static final String TABLE_CURRENCY="CURRENCY";
-    public static final String TABLE_CUSTOMER_REFRESH_TOKEN="CUSTOMER_REFRESH_TOKEN";
+    public static final String TABLE_ADMIN_LOGIN_HISTORY="admin_login_history";
+    public static final String TABLE_ADMIN_USER="admin_user";
+    public static final String TABLE_ADMIN_USER_ROLE="admin_user_role";
+    public static final String TABLE_CLIENT_LOGIN_HISTORY="client_login_history";
+    public static final String TABLE_CUSTOMER_REFRESH_TOKEN="customer_refresh_token";
+    public static final String TABLE_CLIENT_USERS="client_user";
+    public static final String TABLE_CLIENT_USER_ROLE="client_user_role";
+    public static final String TABLE_PERMISSIONS="permission";
+    public static final String TABLE_ROLES="role";
+    public static final String TABLE_ROLE_PERMISSIONS="role_permissions";
+    public static final String TABLE_SYSTEM_CONFIGURATION="system_configuration";
+    public static final String TABLE_TOKEN_BLACKLIST="token_blacklist";
 
-    public static final String TABLE_CLIENT_USERS="CLIENT_USERS";
-//    public static final String TABLE_ORGANIZATION="ORGANIZATION";
-    public static final String TABLE_CLIENT_USER_ROLE="CLIENT_USER_ROLE";
-    public static final String TABLE_PERMISSIONS="PERMISSIONS";
-    public static final String TABLE_ROLES="ROLES";
-    public static final String TABLE_ROLE_PERMISSIONS="ROLES_PERMISSIONS";
-//    public static final String TABLE_SQUAD="SQUAD";
-//    public static final String TABLE_SUBSCRIPTION="SUBSCRIPTION";
-//    public static final String TABLE_SUBSCRIPTION_REQUESTS="SUBSCRIPTION_REQUESTS";
-    public static final String TABLE_SYSTEM_CONFIGURATION="SYSTEM_CONFIGURATION";
-//    public static final String TABLE_TECH_STACKS="TECH_STACKS";
-    public static final String TABLE_TOKEN_BLACKLIST="TOKEN_BLACKLIST";
-//    public static final String TABLE_INVOICE="INVOICE";
-    public static final String TABLE_DOCUMENT="DOCUMENT";
-//    public static final String TABLE_INVOICE_LINE_ITEM="INVOICELINEITEM";
-//    public static final String TABLE_BILLING_RATE="BILLING_RATE";
-//    public static final String TABLE_EDUCATION="EDUCATION";
-//    public static final String TABLE_PROJECT="PROJECT";
-//    public static final String TABLE_WORK_EXPERIENCE="WORK_EXPERIENCE";
-//    public static final String TABLE_ENGINEER_RATING ="ENGINEER_RATING";
-//    public static final String TABLE_ENGINEER_REVIEW ="ENGINEER_REVIEW";
-//    public static final String TABLE_ENGINEER_PLACEMENT_READINESS ="PLACEMENT_READINESS";
-
-
-    //schema const
-    public static final int PROJECT_NAME_COL_SIZE = 255;
-    public static final int REVIEW_COL_SIZE = 3000;
-    public static final int PROJECT_DESC_COL_SIZE = 1000;
-    public static final int INSTITUTION_COL_SIZE = 255;
-    public static final int WORK_EXPERIENCE_DESC_COL_SIZE = 1000;
-    public static final int COURSE_COL_SIZE = 255;
-    public static final int QUALIFICATION_COL_SIZE = 255;
-    public static final int WORK_EXPERIENCE_COMPANY_NAME_COL_SIZE = 255;
-    public static final int WORK_EXPERIENCE_ROL_COL_SIZE = 255;
 
 
 }

@@ -13,15 +13,15 @@ public interface AdminUserRepository extends JpaRepository<AdminUser,Long> {
 
     Optional<AdminUser> findByEmail(String email);
 
-    @Query("select u from AdminUser u left join fetch u.roles r left join fetch r.permissions p  where u.email =:username and u.auditSession.delF='0'")
+    @Query("select u from AdminUser u left join fetch u.roles r left join fetch r.permissions p  where u.email =:username and u.auditSection.delF='0'")
     Optional<AdminUser> findAuthUserByEmail(String username);
 
     boolean existsByEmail(String email);
 
-    @Query("select new com.indulgetech.dto.user.admin.ListAdminUserDto(u.id,CONCAT(u.lastName,' ', u.firstName),u.email,u.telephoneNumber,u.status,u.auditSession.dateCreated) from AdminUser u WHERE  u.auditSession.delF <> '1' order by u.lastName asc")
+    @Query("select new com.indulgetech.dto.user.admin.ListAdminUserDto(u.id,CONCAT(u.lastName,' ', u.firstName),u.email,u.telephoneNumber,u.status,u.auditSection.dateCreated) from AdminUser u WHERE  u.auditSection.delF <> '1' order by u.lastName asc")
     Page<ListAdminUserDto> listAdminUsers(Pageable pageable);
 
-    @Query("select u from AdminUser u left join fetch u.roles r where u.id =:userId and u.auditSession.delF='0'")
+    @Query("select u from AdminUser u left join fetch u.roles r where u.id =:userId and u.auditSection.delF='0'")
     Optional<AdminUser> findAdminUserDetail(final Long userId);
 
     boolean existsByEmailAndIdNot(String email, Long userId);

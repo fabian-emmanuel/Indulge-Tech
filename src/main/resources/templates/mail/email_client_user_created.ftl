@@ -1,6 +1,6 @@
-<html>
+<html lang="en">
 <head>
-    <style type="text/css">
+    <style rel="stylesheet">
         p {
         }
 
@@ -8,7 +8,7 @@
             font-weight: bold;
         }
 
-        p.headline span,.text-bold {
+        p.headline span, .text-bold {
             font-weight: bold;
         }
 
@@ -30,6 +30,7 @@
             font-weight: bold;
         }
     </style>
+    <title>Client User Created</title>
 </head>
 <body>
 
@@ -57,27 +58,25 @@
             <!-- content -->
             <div class="content">
                 <p>
-                    <table>
-                        <tr>
-                            <td align="center">
-                <p>
-                    ${EMAIL_DISCLAIMER}
-                </p>
-                <p>
-                    ${EMAIL_SPAM_DISCLAIMER}
-                </p>
-                <p>
-                    ${EMAIL_FOOTER_COPYRIGHT}
-                </p>
+                <table>
+                    <tr>
+                        <td>
+                            <p>
+                                ${EMAIL_DISCLAIMER}
+                            </p>
+                            <p>
+                                ${EMAIL_SPAM_DISCLAIMER}
+                            </p>
+                            <p>
+                                ${EMAIL_FOOTER_COPYRIGHT}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div><!-- /content -->
+
         </td>
     </tr>
-</table>
-</p>
-</div><!-- /content -->
-
-</td>
-<td></td>
-</tr>
 </table><!-- /FOOTER -->
 </body>
 </html>

@@ -2,7 +2,7 @@ package com.indulgetech.models.system;
 
 
 import com.indulgetech.models.common.audit.AuditListener;
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import lombok.*;
@@ -42,5 +42,5 @@ public class SystemConfiguration extends BaseEntity<Long, SystemConfiguration> i
     private SystemConfigrationType systemConfigrationType=SystemConfigrationType.TEXT;
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 }

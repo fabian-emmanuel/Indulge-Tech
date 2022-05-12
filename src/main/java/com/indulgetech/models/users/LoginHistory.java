@@ -3,7 +3,7 @@ package com.indulgetech.models.users;
 
 import com.indulgetech.constants.PrcRsltCode;
 import com.indulgetech.models.common.audit.AuditListener;
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import lombok.Getter;
@@ -29,6 +29,6 @@ public class LoginHistory extends BaseEntity<Long, LoginHistory> implements Audi
     private String prcRslt= PrcRsltCode.FAILURE; //failure by default
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 
 }

@@ -3,6 +3,7 @@ package com.indulgetech.security.client;
 
 import com.indulgetech.models.users.UserStatus;
 import com.indulgetech.models.users.client.ClientUser;
+import com.indulgetech.utils.AuthUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,25 +13,24 @@ import java.util.List;
 
 public class ClientUserInfo implements UserDetails {
 
-    private final ClientUser user;
+    private ClientUser user;
 
-    private final Collection<? extends GrantedAuthority> authorities;
+    public ClientUserInfo() {
+    }
 
-
-    public ClientUserInfo(ClientUser user, Collection<? extends GrantedAuthority> authorities) {
+    public ClientUserInfo(ClientUser user) {
         this.user = user;
-        this.authorities = authorities;
     }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return this.getUserAuthorities();
     }
 
-//    private Collection<? extends GrantedAuthority> getUserAuthorities() {
-//        return AuthUtils.getUserAuthorities(this.user.getRoles());
-//    }
+    private Collection<? extends GrantedAuthority> getUserAuthorities() {
+        return AuthUtils.getUserAuthorities(this.user.getRoles());
+    }
 
     @Override
     public String getPassword() {
@@ -61,17 +61,6 @@ public class ClientUserInfo implements UserDetails {
     public boolean isEnabled() {
         return user.getStatus().equals(UserStatus.ACTIVE);
     }
-
-    public static ClientUserInfo build(ClientUser user){
-        List<GrantedAuthority> authorities = new ArrayList<>();
-
-        return new ClientUserInfo(
-                user,
-                authorities);
-
-    }
-
-
 
 
     @Override

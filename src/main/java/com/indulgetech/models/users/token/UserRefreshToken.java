@@ -2,7 +2,7 @@ package com.indulgetech.models.users.token;
 
 
 import com.indulgetech.models.common.audit.AuditListener;
-import com.indulgetech.models.common.audit.AuditSession;
+import com.indulgetech.models.common.audit.AuditSection;
 import com.indulgetech.models.common.audit.Auditable;
 import com.indulgetech.models.common.generics.BaseEntity;
 import com.indulgetech.utils.CommonUtils;
@@ -36,7 +36,7 @@ public class UserRefreshToken extends BaseEntity<Long, UserRefreshToken> impleme
     private String userName;
 
     @Embedded
-    private AuditSession auditSession = new AuditSession();
+    private AuditSection auditSection = new AuditSection();
 
     public void calculateExpiryDate(String valdtyTrm) {
 

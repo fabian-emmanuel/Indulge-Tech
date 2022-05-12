@@ -45,7 +45,6 @@ import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
-//import static com.indulgetech.exceptions.CustomException.*;
 import static com.indulgetech.exceptions.EntityType.ADMIN_USER;
 
 
@@ -279,7 +278,7 @@ public class AdminUserServiceImpl extends BaseEntityServiceImpl<Long, AdminUser>
         if (adminUserInfo == null) {
             throw new UnAuthorizedException();
         }
-        adminUser.get().getAuditSession().setModifiedBy(adminUserInfo.getUserId());
+        adminUser.get().getAuditSection().setModifiedBy(adminUserInfo.getUserId());
     }
 
 
@@ -395,7 +394,7 @@ public class AdminUserServiceImpl extends BaseEntityServiceImpl<Long, AdminUser>
         if (adminUser.getId() == null) {//save mode
         } else {//edit mode
             AdminUserInfo adminUserInfo = (AdminUserInfo) this.userInfoUtil.authenticatedUserInfo();
-            adminUser.getAuditSession().setModifiedBy(adminUserInfo.getUserId());
+            adminUser.getAuditSection().setModifiedBy(adminUserInfo.getUserId());
             if (!adminUserRequestDto.getStatus().equals(adminUser.getStatus().name())) {
                 adminUser.setStatusDate(CustomDateUtils.now());
             }

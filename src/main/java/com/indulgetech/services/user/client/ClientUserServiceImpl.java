@@ -14,7 +14,6 @@ import com.indulgetech.exceptions.InvalidRequestException;
 import com.indulgetech.exceptions.ResourceNotFoundException;
 import com.indulgetech.models.users.User;
 import com.indulgetech.models.users.UserStatus;
-import com.indulgetech.models.users.UserType;
 import com.indulgetech.models.users.client.ClientUser;
 import com.indulgetech.models.users.roles.Role;
 import com.indulgetech.models.users.roles.RoleType;
@@ -318,7 +317,7 @@ public class ClientUserServiceImpl extends BaseEntityServiceImpl<Long, ClientUse
     @Transactional
     public void deleteUser(Long userId) {
         Optional<ClientUser> optional = this.repository.findById(userId);
-        optional.ifPresent(t -> t.getAuditSession().setDelF("1") /*this.repository.delete(t)*/);
+        optional.ifPresent(t -> t.getAuditSection().setDelF("1") /*this.repository.delete(t)*/);
     }
 
     @Override
